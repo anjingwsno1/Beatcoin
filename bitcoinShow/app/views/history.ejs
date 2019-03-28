@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>History Price</title>
+    <script src="js/echarts.js"></script>
+    <link href="css/Test.css" rel="stylesheet" type="text/css" mdeia="all">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/JiSlider.css" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+	<!-- Owl-carousel-CSS --><link href="css/owl.carousel.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- font-awesome-icons -->
+	<link href="css/font-awesome.css" rel="stylesheet"> 
+	<!-- //font-awesome-icons -->
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900" rel="stylesheet">
+	<style tpye="text/css">
+	    .w3ls_banner_bottom_grid{
+		    margin-top: 3px;
+            box-shadow: 0 0 10px 2px grey;
+			padding:0 5px 0 5px;
+			background-color:white;
+		}
+		.BTC{
+			margin: 0px;
+		}
+    </style>
+</head>
+<body>
+	<div class="main_section_agile">
+		<div class="agileits_w3layouts_banner_nav">
+		   
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<h1><a class="navbar-brand" href="/"><i class="fa fa-diamond" aria-hidden="true"></i> BEATCOIN</a></h1>
+
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="link-effect-2" id="link-effect-2">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/" class="effect-3">Home</a></li>
+							<% if(isLoged){%>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Features <b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/history">History Price</a></li>
+									<li><a href="/currency">Currency</a></li>
+									<li><a href="/prediction">Prediction</a></li>
+								</ul>
+							</li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Admin<b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/profile">My Information</a></li>
+										<% try{if(isLoged){ %>
+										<li><a href="/logout">Log Out</a></li>
+										<% } }catch(err){alert(err);}%> 
+								</ul>
+							<% } %> 
+						</ul>
+					</nav>
+
+				</div>
+			</nav>	
+			<div class="clearfix"> </div> 
+		</div>
+</div>
+<!--/ banner -->
+<div class="banner1">
+			
+		<div class="w3_agileits_service_banner_info">
+			<h2>History Price</h2>
+		</div>
+	</div>
+
+<a id="ibangkf" href="http://www.ibangkf.com"></a>
+<script type="text/javascript" src="http://c.ibangkf.com/i/c-wdcgmy.js"></script>
+
+
+
+	
+
+<!--/ banner -->
+	<div class="inner_main_agile_section">
+		<div class="container">
+				<h6>Latest Month Price Change</h6>
+				<h3 class="w3l_header w3_agileits_header">Select <span>Currency</span></h3>
+			<p class="sub_para_agile two"></p>
+			<div class="agileits_banner_bottom_grids" >
+				<div class="col-md-3 agileits_banner_bottom_grid" >
+					<div class="w3ls_banner_bottom_grid">
+						<h3 ><img src="images/icon-B.png" alt=" " width ="28" ><a style="color:darkorange"> Bitcoin</a> </h3>
+						<h3 class="counter" align="left" style="color: #BBBBBB">$<%- priceNow[0] %></h3>
+						 <div id="BTC" style="width: 100%; height: 200px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('BTC'));
+							 var btcDayPrice = JSON.parse('<%- btcDayPrice %>');
+							 var day = [];
+							 for (var i=0;i<30;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip: {
+									 trigger: 'axis',
+									 axisPointer: {
+										 type: 'line'
+										 }
+									 },
+								 legend: {
+								     top:'top',
+									 bottom:'bottom'
+							            },
+								 xAxis: {
+									 type: 'category',
+									 data: day,
+									 show: false,
+									 }, 
+								 yAxis: {
+									 type: 'value',
+									 min: 'dataMin',
+									 show: false,
+									 },
+								 series: [{
+									 data: btcDayPrice,
+									 type: 'line',
+									 smooth: true,
+									 color: '#F5922F',
+									 showSymbol: false
+									 }],
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+					   
+						 </div>
+						<div class="overlay"><p style="font-size: 28px">
+				        <button onclick="BtcFunction()" class="label label-success"><span>More</span></button></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileits_banner_bottom_grid">
+					<div class="w3ls_banner_bottom_grid">
+						<h3 ><img src="images/icon-E.png" alt=" " width ="28" ><a style="color:#6481E7"> Ethereum</a> </h3>
+					     <h3 class="counter" align="left" style="color: #BBBBBB">$<%- priceNow[1] %></h3>
+						 <div id="ETH" style="width: 100%; height: 200px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('ETH'));
+							 var ethDayPrice = JSON.parse('<%- ethDayPrice %>');
+							 var day = [];
+							 for (var i=0;i<30;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip: {
+									 trigger: 'axis',
+									 axisPointer: {
+										 type: 'line'
+										 }
+									 },
+								 xAxis: {
+									 type: 'category',
+									 data: day,
+									 show: false
+									 },
+								 yAxis: {
+									 type: 'value',
+									 show: false,
+									  min: 'dataMin',
+									 },
+								 series: [{
+									 data: ethDayPrice,
+									 type: 'line',
+									 smooth: true,
+									 color: '#6481E7',
+									 showSymbol: false
+									 }]
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+						 </div>
+
+						<div class="overlay"><p style="font-size: 28px">
+						<button onclick="EthFunction()" class="label label-success"><span>More</span></button></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileits_banner_bottom_grid">
+					<div class="w3ls_banner_bottom_grid">
+						<h3 ><img src="images/icon-X.png" alt=" " width ="28" ><a style="color:#000000"> XRP</a> </h3>
+					     <h3 class="counter" align="left" style="color: #BBBBBB">$<%- priceNow[2] %></h3>
+						 <div id="XRP" style="width: 100%; height: 200px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('XRP'));
+							 var xrpDayPrice = JSON.parse('<%- xrpDayPrice %>');
+							 var day = [];
+							 for (var i=0;i<30;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip: {
+									 trigger: 'axis',
+									 axisPointer: {
+										 type: 'line'
+										 }
+									 },
+								 xAxis: {
+									 type: 'category',
+									 data: day,
+									 show: false
+									 },
+								 yAxis: {
+									 type: 'value',
+									 show: false,
+									  min: 'dataMin',
+									 },
+								 series: [{
+									 data: xrpDayPrice,
+									 type: 'line',
+									 smooth: true,
+									 color: '#000000',
+									 showSymbol: false
+									 }]
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+						 </div>
+						<p style="font-size: 28px">
+						<button onclick="XrpFunction()" class="label label-success"><span>More</span></button></p>
+						</div>
+					</div>
+				<div class="col-md-3 agileits_banner_bottom_grid">
+					<div class="w3ls_banner_bottom_grid">
+						<h3 ><img src="images/Bitcoin cash BCH.png" alt=" " width ="28" ><a style="color:#81B94E"> Bitcoin Cash</a> </h3>
+						<h3 class="counter" align="left" style="color: #BBBBBB">$<%- priceNow[3] %></h3>
+						 <div id="BCH" style="width: 100%; height: 200px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('BCH'));
+							 var bchDayPrice = JSON.parse('<%- bchDayPrice %>');
+							 var day = [];
+							 for (var i=0;i<30;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip: {
+									 trigger: 'axis',
+									 axisPointer: {
+										 type: 'line'
+										 }
+									 },
+								 xAxis: {
+									 type: 'category',
+									 data: day,
+									 show: false
+									 },
+								 yAxis: {
+									 type: 'value',
+									 show: false,
+									 min: 'dataMin',
+									 },
+								 series: [{
+									 data: bchDayPrice,
+									 type: 'line',
+									 smooth: true,
+									 color: '#81B94E',
+									 showSymbol: false
+									 }]
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+						 </div>
+						<p style="font-size: 28px">
+						<button onclick="BchFunction()" class="label label-success"><span>More</span></button></p>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	
+	<div id="time"></div>
+	<div id="trade"></div>	
+    <div id="Btc" style="width: 100%;height:600px;"></div><p class="sub_para_agile two"></p>
+    <div id="Eth" style="width: 100%;height:600px;"></div><p class="sub_para_agile two"></p>
+    <div id="Xrp" style="width: 100%;height:600px;"></div><p class="sub_para_agile two"></p>
+    <div id="Bch" style="width: 100%;height:600px;"></div><p class="sub_para_agile two"></p>
+    <script>
+	function BtcFunction() {
+	    var Btc = document.getElementById("Btc");
+	    var Eth = document.getElementById("Eth");
+	    var Xrp = document.getElementById("Xrp");
+	    var Bch = document.getElementById("Bch");
+	    Btc.style.display = "block";
+	    Eth.style.display = "none";
+	    Xrp.style.display = "none";
+	    Bch.style.display = "none";
+	}
+	function EthFunction() {
+	    var Btc = document.getElementById("Btc");
+	    var Eth = document.getElementById("Eth");
+	    var Xrp = document.getElementById("Xrp");
+	    var Bch = document.getElementById("Bch");
+	    Eth.style.display = "block";
+	    Btc.style.display = "none";
+	    Xrp.style.display = "none";
+	    Bch.style.display = "none";
+	}
+	function XrpFunction() {
+	    var Btc = document.getElementById("Btc");
+	    var Eth = document.getElementById("Eth");
+	    var Xrp = document.getElementById("Xrp");
+	    var Bch = document.getElementById("Bch");
+	    Xrp.style.display = "block";
+	    Eth.style.display = "none";
+	    Btc.style.display = "none";
+	    Bch.style.display = "none";
+	}
+	function BchFunction() {
+	    var Btc = document.getElementById("Btc");
+	    var Eth = document.getElementById("Eth");
+	    var Xrp = document.getElementById("Xrp");
+	    var Bch = document.getElementById("Bch");
+	    Bch.style.display = "block";
+	    Eth.style.display = "none";
+	    Xrp.style.display = "none";
+	    Btc.style.display = "none";
+	}
+
+	</script>
+	<script type="text/javascript">
+    
+   		//BTC chart
+    	var BtcPrice = JSON.parse('<%- btcPrice %>');
+		var BtcTime = JSON.parse('<%- btcTime %>');
+        var BtcChart = echarts.init(document.getElementById('Btc'));
+        var optionBtc = {
+			     tooltip : {
+        trigger: 'axis',
+        formatter: function (params) {
+            var res = 'Time' + ' ' + params[0].name;
+            res += '<br/>Open: $' + params[0].value[1];
+            res += '<br/>Close: $' + params[0].value[2];
+			res += '<br/>Highest: $' + params[0].value[4];
+			res += '<br/>Lowest: $' + params[0].value[3];
+            return res;
+         },
+		  axisPointer: {
+                type: 'cross'
+            },
+    },
+	axisPointer: {
+        link: {xAxisIndex: 'all'},
+        label: {
+            backgroundColor: '#777'
+            }
+        },
+    legend:{
+			show:true,
+			x:170,
+			data:['price'],
+			textStyle:{
+				 fontWeight:'bold',
+				 fontSize:12
+			}
+		},
+    
+    toolbox: {
+        show : true,
+       feature : {     
+            dataZoom : {show: true},     
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+     dataZoom : {
+        show : true,
+        realtime: true,
+        start : 0,
+        end : 30,
+        backgroundColor:'rgb(245,245,245)',
+        fillerColor:'rgba(144,238,144,0.5)',
+        handleColor :'rgba(70,130,180,0.8)' ,
+        handleIcon:"M0,0 v9.7h5 v-9.7h-5 Z",
+        handleSize:30
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : true,
+            axisTick: {onGap:false},
+            splitLine: {show:false},
+            data : BtcTime,
+            show: true,
+            
+           axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+			axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+          
+           
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            scale:true,
+            boundaryGap: [0.01, 0.01],
+            splitArea:{
+            show: true,
+            color: [
+        		'rgba(250,250,250,0.3)',
+        		'rgba(200,200,200,0.3)'
+   				 ]
+            },
+              axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+              axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+        }
+    ],
+    series : [
+        {
+            name:'price',
+            type:'k',
+            barMaxWidth: 20,
+            itemStyle: {
+                normal: {
+                    color: 'red',         
+                    color0: 'lightgreen',  
+                    lineStyle: {
+                        width: 2,
+                        color: 'orange',   
+                        color0: 'green'     
+                    }
+                },
+                emphasis: {
+                    color: 'black',        
+                    color0: 'white'      
+                }
+            },
+            data:BtcPrice,
+	        
+        }
+    ]
+			};
+	 BtcChart.setOption(optionBtc);
+	 document.getElementById('Btc').style.display = 'none';
+	 
+	 //ETH chart
+    	var EthPrice = JSON.parse('<%- ethPrice %>');
+		var EthTime = JSON.parse('<%- ethTime %>');
+        var EthChart = echarts.init(document.getElementById('Eth'));
+        var optionEth = {
+			     tooltip : {
+        trigger: 'axis',
+        formatter: function (params) {
+            var res = 'Time' + ' ' + params[0].name;
+            res += '<br/>Open: $' + params[0].value[1];
+            res += '<br/>Close: $' + params[0].value[2];
+			res += '<br/>Highest: $' + params[0].value[4];
+			res += '<br/>Lowest: $' + params[0].value[3];
+            return res;
+         },
+		  axisPointer: {
+                type: 'cross'
+            },
+    },
+	axisPointer: {
+        link: {xAxisIndex: 'all'},
+        label: {
+            backgroundColor: '#777'
+            }
+        },
+    legend:{
+			show:true,
+			x:170,
+			data:['Price'],
+			textStyle:{
+				 fontWeight:'bold',
+				 fontSize:12
+				
+			
+			}
+		},
+   toolbox: {
+        show : true,
+       feature : {     
+            dataZoom : {show: true},     
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+   dataZoom : {
+        show : true,
+        realtime: true,
+        start : 0,
+        end : 30,
+        backgroundColor:'rgb(245,245,245)',
+        fillerColor:'rgba(144,238,144,0.5)',
+        handleColor :'rgba(70,130,180,0.8)' ,
+        handleIcon:"M0,0 v9.7h5 v-9.7h-5 Z",
+        handleSize:30
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : true,
+            axisTick: {onGap:false},
+            splitLine: {show:false},
+            data : BtcTime,
+            
+            axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+			axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+           }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            scale:true,
+            boundaryGap: [0.01, 0.01],
+            splitArea:{
+            show: true,
+            color: [
+        		'rgba(250,250,250,0.3)',
+        		'rgba(200,200,200,0.3)'
+   				 ]
+            },
+              axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+              axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+          
+        }
+    ],
+    series : [
+        {
+            name:'Price',
+            type:'k',
+            barMaxWidth: 20,
+            itemStyle: {
+                normal: {
+                    color: 'red',           
+                    color0: 'lightgreen', 
+                    lineStyle: {
+                        width: 2,
+                        color: 'orange',    
+                        color0: 'green'     
+                    }
+                },
+                emphasis: {
+                    color: 'black',       
+                    color0: 'white'       
+                }
+            },
+            data:EthPrice
+        }
+    ]
+			};
+	 EthChart.setOption(optionEth);
+	 document.getElementById('Eth').style.display = 'none';
+	 
+	 
+	 //XRP chart
+    	var XrpPrice = JSON.parse('<%- xrpPrice %>');
+		var XrpTime = JSON.parse('<%- xrpTime %>');
+        var XrpChart = echarts.init(document.getElementById('Xrp'));
+        var optionXrp = {
+			     tooltip : {
+        trigger: 'axis',
+         formatter: function (params) {
+            var res = 'Time' + ' ' + params[0].name;
+            res += '<br/>Open: $' + params[0].value[1];
+            res += '<br/>Close: $' + params[0].value[2];
+			res += '<br/>Highest: $' + params[0].value[4];
+			res += '<br/>Lowest: $' + params[0].value[3];
+            return res;
+         },
+		  axisPointer: {
+                type: 'cross'
+            },
+    },
+	axisPointer: {
+        link: {xAxisIndex: 'all'},
+        label: {
+            backgroundColor: '#777'
+            }
+        },
+        legend:{
+			show:true,
+			x:170,
+			data:['Price'],
+			textStyle:{
+				 fontWeight:'bold',
+				 fontSize:12
+			}
+		},
+   toolbox: {
+        show : true,
+        feature : {     
+            dataZoom : {show: true},     
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+   dataZoom : {
+        show : true,
+        realtime: true,
+        start : 0,
+        end : 30,
+        backgroundColor:'rgb(245,245,245)',
+        fillerColor:'rgba(144,238,144,0.5)',
+        handleColor :'rgba(70,130,180,0.8)' ,
+        handleIcon:"M0,0 v9.7h5 v-9.7h-5 Z",
+        handleSize:30
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : true,
+            axisTick: {onGap:false},
+            splitLine: {show:false},
+            data : BtcTime,
+            
+            axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+			axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+           }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            scale:true,
+            boundaryGap: [0.01, 0.01],
+            splitArea:{
+            show: true,
+            color: [
+        		'rgba(250,250,250,0.3)',
+        		'rgba(200,200,200,0.3)'
+   				 ]
+            },
+              axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+              axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+          
+        }
+    ],
+    series : [
+        {
+            name:'Price',
+            type:'k',
+            barMaxWidth: 20,
+            itemStyle: {
+                normal: {
+                    color: 'red',          
+                    color0: 'lightgreen',   
+                    lineStyle: {
+                        width: 2,
+                        color: 'orange',   
+                        color0: 'green'     
+                    }
+                },
+                emphasis: {
+                    color: 'black',        
+                    color0: 'white'       
+                }
+            },
+            data:XrpPrice
+        }
+    ]
+			};
+	 XrpChart.setOption(optionXrp);
+	 document.getElementById('Xrp').style.display = 'none';
+	 
+	 //BCH chart
+    	var BchPrice = JSON.parse('<%- bchPrice %>');
+		var BchTime = JSON.parse('<%- bchTime %>');
+        var BchChart = echarts.init(document.getElementById('Bch'));
+        var optionBch = {
+			     tooltip : {
+        trigger: 'axis',
+         formatter: function (params) {
+            var res = 'Time' + ' ' + params[0].name;
+            res += '<br/>Open: $' + params[0].value[1];
+            res += '<br/>Close: $' + params[0].value[2];
+			res += '<br/>Highest: $' + params[0].value[4];
+			res += '<br/>Lowest: $' + params[0].value[3];
+            return res;
+         },
+		  axisPointer: {
+                type: 'cross'
+            },
+    },
+	axisPointer: {
+        link: {xAxisIndex: 'all'},
+        label: {
+            backgroundColor: '#777'
+            }
+        },
+    legend:{
+			show:true,
+			x:170,
+			data:['Price'],
+			textStyle:{
+				 fontWeight:'bold',
+				 fontSize:12
+			}
+		},
+   toolbox: {
+        show : true,
+        feature : {     
+            dataZoom : {show: true},     
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+   dataZoom : {
+        show : true,
+        realtime: true,
+        start : 0,
+        end : 30,
+        backgroundColor:'rgb(245,245,245)',
+        fillerColor:'rgba(144,238,144,0.5)',
+        handleColor :'rgba(70,130,180,0.8)' ,
+        handleIcon:"M0,0 v9.7h5 v-9.7h-5 Z",
+        handleSize:30
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : true,
+            axisTick: {onGap:false},
+            splitLine: {show:false},
+            data : BtcTime,
+            
+            axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+			axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+           }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            scale:true,
+            boundaryGap: [0.01, 0.01],
+            splitArea:{
+            show: true,
+            color: [
+        		'rgba(250,250,250,0.3)',
+        		'rgba(200,200,200,0.3)'
+   				 ]
+            },
+              axisLabel: {
+                show: true,      
+                textStyle: {
+                  color: "black" ,
+                  fontFamily:'Arial, Verdana, sans-serif',
+                  fontSize: 16,
+                  fontStyle:'oblique',
+                  fontWeight:'bold'
+                }
+              },
+              
+              axisTick:{
+					show: true,
+					inside:true,
+					lineStyle:{
+              	 		color:'rgb(128,138,135)',
+              	 		width: 3,
+              		    type: 'solid'
+              	  		}
+					},
+			
+              axisLine:{ 
+              	lineStyle:{
+              	 color:'rgb(192,192,192)',
+              	 width: 3,
+              	 type: 'solid'
+              	  }
+            
+            },
+          
+        }
+    ],
+    series : [
+        {
+            name:'Price',
+            type:'k',
+            barMaxWidth: 20,
+            itemStyle: {
+                normal: {
+                    color: 'red',           
+                    color0: 'lightgreen',  
+                    lineStyle: {
+                        width: 2,
+                        color: 'orange',    
+                        color0: 'green'     
+                    }
+                },
+                emphasis: {
+                    color: 'black',         
+                    color0: 'white'         
+                }
+            },
+            data:BchPrice
+        }
+    ]
+			};
+	 BchChart.setOption(optionBch);
+	 document.getElementById('Bch').style.display = 'none';
+	 
+    </script>
+   <p class="sub_para_agile two"></p>
+	
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3_agile_footer_grids">
+				<div class="w3_agile_footer_grid col-md-12">
+					<h3>BeatCoin</h3>
+					<p style="color: white">
+						<strong>Intorducing our website<br/></strong>
+						This website is designed for people who want to know cryptocurrency better. Its purpose is to display the cryptocurrency market by getting, retrieving, computing data from other web API.
+						<br/>
+					</p>
+				</div>
+              <div class="clearfix"> </div>
+			</div>
+
+			<div class="agileinfo_copyright">
+				<p>Developed by : Comp5703cp228</p>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

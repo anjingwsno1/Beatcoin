@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Home</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<!-- //custom-theme -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/JiSlider.css" rel="stylesheet"> 
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+<!-- Owl-carousel-CSS --><link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome-icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<script src="js/echarts.js"></script>
+<!-- //font-awesome-icons -->
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900" rel="stylesheet">
+</head>
+	
+<body>
+<!-- banner -->
+<div class="main_section_agile">
+		<div class="agileits_w3layouts_banner_nav">
+		   
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<h1><a class="navbar-brand" href="/"><i class="fa fa-diamond" aria-hidden="true"></i> BEATCOIN</a></h1>
+				</div>
+				 <ul id="displayUser" class="agile_forms">
+					<li><a  id="userInteraction" class="active" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a> </li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up</a> </li>
+				</ul>
+				
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="link-effect-2" id="link-effect-2">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/" class="effect-3">Home</a></li>
+							<% try{if(isLoged){ %>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Features <b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/history">History Price</a></li>
+									<li><a href="/currency">Currency</a></li>
+									<li><a href="/prediction">Prediction</a></li>
+								</ul>
+							</li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Admin<b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/profile">My Information</a></li>
+										<% try{if(isLoged){ %>
+										<li><a href="/logout">Log Out</a></li>
+										<% } }catch(err){alert(err);}%> 
+								</ul>
+							<% } }catch(err){alert(err);}%> 
+						</ul>
+					</nav>
+
+				</div>
+			</nav>	
+<div class="clearfix"> </div> 
+		</div>
+</div>
+<!-- banner -->
+	<div class="banner-silder">
+		<div id="JiSlider" class="jislider">
+			<ul>
+				<li>
+					<div class="w3layouts-banner-top">
+
+							<div class="container">
+								<div class="agileits-banner-info">
+								
+									<h3>Bitcoin News</h3>
+									 <p style="letter-spacing: 1px">Crawling the latest online bitcoin News，you can gain insight into the bitcoin information in the world, fully understand Bitcoin through the Bitcoin News module</p>
+									
+								</div>	
+							</div>
+						</div>
+				</li>
+				<li>
+						<div class="w3layouts-banner-top w3layouts-banner-top1">
+						<div class="container">
+								<div class="agileits-banner-info">
+								
+									<h3>Historical Price</h3>
+									 <p style="letter-spacing: 1px">Through the historical price trends of various cryptocurrencies displayed by Echarts, it is easy to obtain price fluctuations at different stages.</p>
+								</div>	
+							</div>
+						</div>
+				</li>
+				<li>
+						<div class="w3layouts-banner-top w3layouts-banner-top2">
+							<div class="container">
+								<div class="agileits-banner-info">
+								
+									<h3> Currency Change</h3>
+									 <p style="letter-spacing: 1px">Real-time tracking of various cryptocurrency prices, market size, capacity, vividly displaying price changes through dynamic visual effects and vibrant sound effects</p>
+									
+								</div>	
+								
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3layouts-banner-top w3layouts-banner-top2">
+							<div class="container">
+								<div class="agileits-banner-info">
+								
+									<h3>Price Prediction</h3>
+									 <p style="letter-spacing: 1px">Analyzing historical data of various cryptocurrencies, combined with advanced machine learning and algorithms, to predict the price trend for the next five days.</p>
+									
+								</div>	
+								
+							</div>
+						</div>
+					</li>
+			</ul>
+		</div>
+      </div>
+
+<!-- //banner -->
+	<!-- Modal1 -->
+													<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+														<div class="modal-dialog">
+														<!-- Modal content-->
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	
+																	<div class="signin-form profile">
+																	<h3 class="agileinfo_sign">Sign In</h3>	
+																			<div class="login-form">
+																				<form action="/login" method="post">
+																					<input type="text" name="accountnameEmail" placeholder="Account Name or E-mail" required="">
+																					<input type="password" name="passw" placeholder="Password" required="">
+																					<div class="tp">
+																						<input type="submit" value="Sign In">
+																					</div>
+																				</form>
+																			</div>
+																			<p><a href="#" data-toggle="modal" data-target="#myModal3" > Don't have an account?</a></p>
+																		</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!-- //Modal1 -->	
+													<!-- Modal2 -->
+													<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+														<div class="modal-dialog">
+														<!-- Modal content-->
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	
+																	<div class="signin-form profile">
+																	<h3 class="agileinfo_sign">Sign Up</h3>	
+																			<div class="login-form">
+																				<form action="/signup" method="post">
+																				   <input type="text" name="realname" placeholder="Real Name" required="">
+																				   <input type="text" name="accountname" placeholder="Account Name" required="">
+																					<input type="email" name="email" placeholder="Email" required="">
+																					<input type="text" name="telephone" placeholder="Telephone" required="">
+																					<input type="password" name="passw" placeholder="Password" required="">
+																					<input type="submit" value="Sign Up">
+																				</form>
+																			</div>
+																		</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!-- //Modal2 -->	
+
+<!-- bootstrap-pop-up -->
+	<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+		<button type="button" href="/">关闭</button>
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" style="width:1300px;overflow:auto; ">
+				
+			</div>
+		</div>
+	</div>
+<!-- //bootstrap-pop-up -->
+<!-- about -->
+	<div class="inner_main_agile_section">
+		<div class="container">
+		<h6>What makes the world different</h6>
+				<h3 class="w3l_header w3_agileits_header">About <span>Bitcoin</span></h3>
+		<p class="sub_para_agile two">Increased transaction volume</p>
+			
+			<div class="agile_inner_grids">
+								
+				<div class="col-md-6 w3_agileits_about_grid_left col-sm-11">
+					<p>Bitcoin, also called a crypto currency, was created in 2009 by Satoshi Nakamoto, a mysterious individual or a group of people whose true identity is still unknown today. <span>Bitcoin gained in popularity when its price jumped from around 572.33 U.S. dollars in August 2016 to approximately 4,764.87 U.S. dollars in August 2017.As of December 2017 this virtual currency was worth 13,860 U.S. dollars.  </span> </p>
+					<ul>
+						<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Growing market share</li>
+						<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Market capitalization of Bitcoin</li>
+						<li><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Bitcoin ATMs-2,053 by January 2018</li>
+					</ul>
+				</div>
+				<div class="col-md-6 w3_agileits_about_grid_right col-sm-11">
+						<div id="avaPrice" style="width:600px; height:400px;">
+						</div>			
+				</div>
+				<div class="clearfix col-sm-11"> </div>
+			</div>
+		</div>
+	</div>
+
+
+
+		<!-- /blog -->
+	<div class="events">
+		<script>
+
+			var news = JSON.parse('<%- news %>');
+			
+
+			window.onload = function() {
+				if(JSON.parse('<%- isLoged2 %>')){
+					document.getElementById('displayUser').style.display = "none";
+				}
+				var titles = document.getElementsByClassName('newsTitle');
+				for (var i=0;i<5;i++){
+					titles[i].innerHTML = news[i].title;
+					titles[i].href = news[i].url;
+				}
+				
+			}
+		</script>
+		<script>
+			//bar chart
+	    	var avaPrices = JSON.parse('<%- avaPrice %>');
+	        var barChart = echarts.init(document.getElementById('avaPrice'));
+	        
+	        var baroption = {
+				    tooltip : {
+                          trigger: 'axis',
+					},
+	        		title: {
+	        		      text: 'Price of Bitcoin',
+	        		      left: 'center'
+	        		},
+	        	    xAxis: {
+	        	        type: 'category',
+	        	        data: ['2013', '2014', '2015', '2016', '2017', '2018']
+	        	    },
+	        	    yAxis: {
+	        	        type: 'value'
+	        	    },
+	        	    series: [{
+	        	        data: avaPrices,
+	        	        type: 'bar',
+						color: '#00BFFF',
+						markPoint : {
+                           data : [
+                              {type : 'max', name: 'max'},
+                              ],},},
+							]
+	        	};
+	        
+		 	barChart.setOption(baroption);
+		</script>
+		<div class="inner_main_agile_section">s
+		<div class="container">
+		<h6>What makes the world different</h6>
+				<h3 class="w3l_header w3_agileits_header">Latest <span>NEWS</span></h3>		
+		<p class="sub_para_agile two"></p>
+				
+		<ul id="flexiselDemo1">	
+			<li>
+				<div class="w3layouts_event_grid">
+					<div class="w3_agile_event_grid1">
+						<img src="images/1.jpg" alt=" " class="img-responsive" />
+						<div class="w3_agile_event_grid1_pos">
+							<p class=time></p>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_event_grid1">
+						<h3><a class='newsTitle' href=''></a></h3>
+						<p></p>
+					</div>
+				</div>
+			</li>
+			<li>
+                <div class="w3layouts_event_grid">
+					<div class="w3_agile_event_grid1">
+						<img src="images/2.jpg" alt=" " class="img-responsive" />
+						<div class="w3_agile_event_grid1_pos">
+							<p class=time></p>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_event_grid1">
+						<h3><a class='newsTitle' href=''></a></h3>
+						<p></p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="w3layouts_event_grid">
+					<div class="w3_agile_event_grid1">
+						<img src="images/3.jpg" alt=" " class="img-responsive" />
+						<div class="w3_agile_event_grid1_pos">
+							<p class=time></p>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_event_grid1">
+						<h3><a class='newsTitle' href=''></a></h3>
+						<p></p>
+					</div>
+				</div>
+			</li><li>
+				<div class="w3layouts_event_grid">
+					<div class="w3_agile_event_grid1">
+						<img src="images/4.jpg" alt=" " class="img-responsive" />
+						<div class="w3_agile_event_grid1_pos">
+							<p class=time></p>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_event_grid1">
+						<h3><a class='newsTitle' href=''></a></h3>
+						<p></p>
+					</div>
+				</div>
+			</li><li>
+				<div class="w3layouts_event_grid">
+					<div class="w3_agile_event_grid1">
+						<img src="images/5.jpg" alt=" " class="img-responsive" />
+						<div class="w3_agile_event_grid1_pos">
+							<p class=time></p>
+						</div>
+					</div>
+					<div class="agileits_w3layouts_event_grid1">
+						<h3><a class='newsTitle' href=''></a></h3>
+						<p></p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+<!-- //blog -->
+	</div>
+<!-- //banner-bottom -->
+
+
+
+<!-- agile_testimonials -->
+<div class="test">
+	<div class="container">
+	<h3 class="w3l_header w3_agileits_header">inspiring more <span>about Bitcoin </span></h3>
+		<p class="sub_para_agile two">In 1999, Professor Milton Friedman, a Nobel Prize winner in economics stated:<br/>“I think the internet is going to be one of the major forces for reducing the role of government.<br/>The one thing that’s missing but that will soon be developed, is a reliable e-cash.”<br/>Nine years later, Bitcoin was born.</p>
+			
+			<div class="agile_inner_grids">
+					<div class="test-gri1">
+					 <div id="owl-demo2" class="owl-carousel">
+							<div class="agile">
+							   	<div class="test-grid">
+							   		<div class="col-md-8 test-grid1">
+									  <i class="fa fa-quote-left" aria-hidden="true"></i>
+										<p class="para-w3-agile">“I think the fact that within the bitcoin universe an algorithm replaces the functions of [the government] … is actually pretty cool. I am a big fan of Bitcoin”</p>
+										<h4>Al Gore</h4>
+										<span>45th Vice President of the United States</span>
+									</div>	
+									<div class="col-md-4 test-grid2">
+										<img src="images/Al Gore.jpg" alt="" class="img-r">
+									</div>
+								</div>	
+								<div class="clearfix"></div>
+							</div>
+							<div class="agile">
+							   	<div class="test-grid">
+							   		<div class="col-md-8 test-grid1">
+									<i class="fa fa-quote-left" aria-hidden="true"></i>
+										<p class="para-w3-agile">“I do think Bitcoin is the first [encrypted money] that has the potential to do something like change the world.”</p>
+										<h4>Peter Thiel</h4>
+										<span>Co-Founder of Paypal</span>
+									</div>	
+									<div class="col-md-4 test-grid2">
+										<img src="images/Peter Thiel.jpg" alt="" class="img-r">
+									</div>
+								</div>	
+								<div class="clearfix"></div>
+							</div>
+							<div class="agile">
+							   	<div class="test-grid">
+							   		<div class="col-md-8 test-grid1">
+									<i class="fa fa-quote-left" aria-hidden="true"></i>
+										<p class="para-w3-agile">“Blockchain is the tech. Bitcoin is merely the first mainstream manifestation of its potential.”</p>
+										<h4>Marc Kenigsberg</h4>
+										<span>The founder of BitcoinChaser.com</span>
+									</div>	
+									<div class="col-md-4 test-grid2">
+										<img src="images/marc_kenigsberg.jpg" alt="" class="img-r">
+									</div>
+								</div>	
+								<div class="clearfix"></div>
+							</div>
+							<div class="agile">
+							   	<div class="test-grid">
+							   		<div class="col-md-8 test-grid1">
+									<i class="fa fa-quote-left" aria-hidden="true"></i>
+										<p class="para-w3-agile">“Bitcoin is the most important invention in the history of the world since the Internet.”</p>
+										<h4>Roger Ver</h4>
+										<span>‘Bitcoin Jesus’. Early investor of Bitcoin</span>
+									</div>	
+									<div class="col-md-4 test-grid2">
+										<img src="images/roger-ver.jpg" alt="" class="img-r">
+									</div>
+								</div>	
+								<div class="clearfix"></div>
+							</div>	
+					</div>
+				</div>	
+		</div>
+</div>	
+</div>
+<!-- //agile_testimonials -->
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3_agile_footer_grids">
+				<div class="w3_agile_footer_grid col-md-12">
+					<h3>BeatCoin</h3>
+					<p style="color: white">
+						<strong>Intorducing our website<br/></strong>
+						This website is designed for people who want to know cryptocurrency better. Its purpose is to display the cryptocurrency market by getting, retrieving, computing data from other web API.
+						<br/>
+					</p>
+				</div>
+              <div class="clearfix"> </div>
+			</div>
+
+			<div class="agileinfo_copyright">
+				<p>Developed by : Comp5703cp228</p>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+
+<!-- start-smoth-scrolling -->
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<script src="js/JiSlider.js"></script>
+<script>
+			$(window).load(function () {
+				$('#JiSlider').JiSlider({color: '#fff', start: 4, reverse: true}).addClass('ff')
+			})
+</script>
+<!-- stats -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.countup.js"></script>
+		<script>
+			$('.counter').countUp();
+		</script>
+<!-- //stats -->
+
+<!-- flexisel -->
+	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 4,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,    		
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: { 
+					portrait: { 
+						changePoint:480,
+						visibleItems: 1
+					}, 
+					landscape: { 
+						changePoint:667,
+						visibleItems:2
+					},
+					tablet: { 
+						changePoint:800,
+						visibleItems: 3
+					}
+				}
+			});
+			
+		});
+	</script>
+<!-- //flexisel -->
+<!-- requried-jsfiles-for owl -->
+ <script src="js/owl.carousel.js"></script>
+							        <script>
+									    $(document).ready(function() {
+									      $("#owl-demo2").owlCarousel({
+									        items : 1,
+									        lazyLoad : false,
+									        autoPlay : true,
+									        navigation : false,
+									        navigationText :  false,
+									        pagination : true,
+									      });
+									    });
+									  </script>
+							 <!-- //requried-jsfiles-for owl -->
+
+
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

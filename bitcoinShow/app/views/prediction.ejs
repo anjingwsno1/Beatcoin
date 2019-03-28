@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>prediction</title>
+    <script src="js/echarts.js"></script>
+    <link href="css/Test.css" rel="stylesheet" type="text/css" mdeia="all">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="css/JiSlider.css" rel="stylesheet"> 
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+	<!-- Owl-carousel-CSS --><link href="css/owl.carousel.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- font-awesome-icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome-icons -->
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900" rel="stylesheet">
+<style tpye="text/css">
+	    .w3ls_banner_bottom_grid{
+		    margin-top: 3px;
+            box-shadow: 0 0 10px 2px grey;
+			padding:0 15px 0 15px;
+			background-color:white;
+	    }
+    </style>
+</head>
+<div class="main_section_agile">
+		<div class="agileits_w3layouts_banner_nav">
+		   
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<h1><a class="navbar-brand" href="/"><i class="fa fa-diamond" aria-hidden="true"></i> BEATCOIN</a></h1>
+
+				</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="link-effect-2" id="link-effect-2">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/" class="effect-3">Home</a></li>
+							<% if(isLoged){%>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Features <b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/history">History Price</a></li>
+									<li><a href="/currency">Currency</a></li>
+									<li><a href="/prediction">Prediction</a></li>
+								</ul>
+							</li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Admin<b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/profile">My Information</a></li>
+										<% try{if(isLoged){ %>
+										<li><a href="/logout">Log Out</a></li>
+										<% } }catch(err){alert(err);}%> 
+								</ul>
+							<% } %> 
+						</ul>
+					</nav>
+
+				</div>
+			</nav>	
+<div class="clearfix"> </div> 
+		</div>
+</div>
+<!--/ banner -->
+<div class="banner1">
+			
+		<div class="w3_agileits_service_banner_info">
+			<h2>Prediction</h2>
+		</div>
+	</div>
+<body>
+<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<div class="container">
+	<div class="inner_main_agile_section">
+				<h6>Currency Prediction</h6>
+				<h3 class="w3l_header w3_agileits_header">Five Days <span> Prediction</span></h3>
+			<p class="sub_para_agile two"></p>
+			<div class="agileits_banner_bottom_grids" >
+				<div class="col-md-6 agileits_banner_bottom_grid" >
+					<div class="w3ls_banner_bottom_grid">
+						<h5> </h5>
+						<h1><img src="images/icon-B.png" alt=" " width ="38" ><a style="color:darkorange"> Bitcoin</a> </h1>
+						 <div id="BTC" style="width: 100%; height: 380px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('BTC'));
+							 var btcPrediction = JSON.parse('<%- btcPrediction %>');
+							 var day = [];
+							 for (var i=0;i<6;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip : {
+									 trigger: 'axis',
+									 axisPointer:{
+										 type:'cross'
+									 },
+								 },
+								 axisPointer: {
+									 link: {xAxisIndex: 'all'},
+									 label: {
+										 backgroundColor: '#777'
+										 }
+									 },
+								 legend: {
+								     top:'top',
+									 bottom:'bottom'
+							            },
+								 xAxis: {
+									 type: 'category',
+									 data: ['Today','1 Day','2 Day','3 Day','4 day','5 day']
+									 }, 
+								 yAxis: {
+									 type: 'value',
+									 min: 'dataMin'
+									 },
+								 series: [{
+									 data: btcPrediction,
+									 type: 'line',
+									 smooth: true,
+									 color: '#F5922F'
+									 }],
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+					   
+						 </div>
+
+					</div>
+				</div>
+				<div class="col-md-6 agileits_banner_bottom_grid">
+					<div class="w3ls_banner_bottom_grid">
+						<h1 ><img src="images/icon-E.png" alt=" " width ="38" ><a style="color:#6481E7"> Ethereum</a> </h1>
+						 <div id="ETH" style="width: 100%; height: 380px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('ETH'));
+							 var ethPrediction = JSON.parse('<%- ethPrediction %>');
+							 var day = [];
+							 for (var i=0;i<ethPrediction.length;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip : {
+									 trigger: 'axis',
+									 axisPointer:{
+										 type:'cross'
+									 },
+								 },
+								 axisPointer: {
+									 link: {xAxisIndex: 'all'},
+									 label: {
+										 backgroundColor: '#777'
+										 }
+									 },
+								 legend: {
+								     top:'top',
+									 bottom:'bottom'
+							            },
+								 xAxis: {
+									 type: 'category',
+									 data: ['Today','1 Day','2 Day','3 Day','4 day','5 day']
+									 }, 
+								 yAxis: {
+									 type: 'value',
+									 min: 'dataMin'
+									 },
+								 series: [{
+									 data: ethPrediction,
+									 type: 'line',
+									 smooth: true,
+									 color: '#6481E7'
+									 }],
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+						 </div>
+
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<p class="sub_para_agile two"></p>
+				<div class="col-md-6 agileits_banner_bottom_grid">
+					<div class="w3ls_banner_bottom_grid">
+						<h1 ><img src="images/icon-X.png" alt=" " width ="38" ><a style="color:#000000"> XRP</a> </h1>
+						 <div id="XRP" style="width: 100%; height: 380px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('XRP'));
+							 var xrpPrediction = JSON.parse('<%- xrpPrediction %>');
+							 var day = [];
+							 for (var i=0;i<6;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip : {
+									 trigger: 'axis',
+									 axisPointer:{
+										 type:'cross'
+									 },
+								 },
+								 axisPointer: {
+									 link: {xAxisIndex: 'all'},
+									 label: {
+										 backgroundColor: '#777'
+										 }
+									 },
+								 legend: {
+								     top:'top',
+									 bottom:'bottom'
+							            },
+								 xAxis: {
+									 type: 'category',
+									 data: ['Today','1 Day','2 Day','3 Day','4 day','5 day']
+									 }, 
+								 yAxis: {
+									 type: 'value',
+									 min: 'dataMin'
+									 },
+								 series: [{
+									 data: xrpPrediction,
+									 type: 'line',
+									 smooth: true,
+									 color: '#000000'
+									 }],
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+						 </div>
+						</div>
+					</div>
+				<div class="col-md-6 agileits_banner_bottom_grid">
+					<div class="w3ls_banner_bottom_grid">
+						<h1 ><img src="images/Bitcoin cash BCH.png" alt=" " width ="38" ><a style="color:#81B94E"> Bitcoin Cash</a> </h1>
+						 <div id="BCH" style="width: 100%; height: 380px"> 
+                         <script type="text/javascript">
+							 var myChart = echarts.init(document.getElementById('BCH'));
+							 var bchPrediction = JSON.parse('<%- bchPrediction %>');
+							 var day = [];
+							 for (var i=0;i<6;i++){
+							 	day[i] = i;
+							 }
+							 var option = {
+								 tooltip : {
+									 trigger: 'axis',
+									 axisPointer:{
+										 type:'cross'
+									 },
+								 },
+								 axisPointer: {
+									 link: {xAxisIndex: 'all'},
+									 label: {
+										 backgroundColor: '#777'
+										 }
+									 },
+								 legend: {
+								     top:'top',
+									 bottom:'bottom'
+							            },
+								 xAxis: {
+									 type: 'category',
+									 data: ['Today','1 Day','2 Day','3 Day','4 day','5 day']
+									 }, 
+								 yAxis: {
+									 type: 'value',
+									 min: 'dataMin'
+									 },
+								 series: [{
+									 data: bchPrediction,
+									 type: 'line',
+									 smooth: true,
+									 color: '#81B94E'
+									 }],
+								 };
+
+							 myChart.setOption(option);
+						 </script>
+						 </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+					</div>
+				</div>
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3_agile_footer_grids">
+				<div class="w3_agile_footer_grid col-md-12">
+					<h3>BeatCoin</h3>
+					<p style="color: white">
+						<strong>Intorducing our website<br/></strong>
+						This website is designed for people who want to know cryptocurrency better. Its purpose is to display the cryptocurrency market by getting, retrieving, computing data from other web API.
+						<br/>
+					</p>
+				</div>
+              <div class="clearfix"> </div>
+			</div>
+
+			<div class="agileinfo_copyright">
+				<p>Developed by : Comp5703cp228</p>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+
+<!-- start-smoth-scrolling -->
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<script src="js/JiSlider.js"></script>
+<script>
+			$(window).load(function () {
+				$('#JiSlider').JiSlider({color: '#fff', start: 3, reverse: true}).addClass('ff')
+			})
+</script>
+<!-- stats -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.countup.js"></script>
+		<script>
+			$('.counter').countUp();
+		</script>
+<!-- //stats -->
+<script type="text/javascript">
+$(function(){
+  $("#bars li .bar").each(function(key, bar){
+    var percentage = $(this).data('percentage');
+
+    $(this).animate({
+      'height':percentage+'%'
+    }, 1000);
+  })
+})
+</script>
+<!-- flexisel -->
+	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,    		
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: { 
+					portrait: { 
+						changePoint:480,
+						visibleItems: 1
+					}, 
+					landscape: { 
+						changePoint:667,
+						visibleItems:2
+					},
+					tablet: { 
+						changePoint:800,
+						visibleItems: 3
+					}
+				}
+			});
+			
+		});
+	</script>
+<!-- //flexisel -->
+<!-- requried-jsfiles-for owl -->
+ <script src="js/owl.carousel.js"></script>
+							        <script>
+									    $(document).ready(function() {
+									      $("#owl-demo2").owlCarousel({
+									        items : 1,
+									        lazyLoad : false,
+									        autoPlay : true,
+									        navigation : false,
+									        navigationText :  false,
+									        pagination : true,
+									      });
+									    });
+									  </script>
+							 <!-- //requried-jsfiles-for owl -->
+
+
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>User</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<!-- //custom-theme -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Owl-carousel-CSS --><link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome-icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome-icons -->
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,900" rel="stylesheet">
+</head>
+	
+<body>
+<!-- banner -->
+<div class="main_section_agile">
+		<div class="agileits_w3layouts_banner_nav">
+		   
+			<nav class="navbar navbar-default">
+				<div class="navbar-header navbar-left">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<h1><a class="navbar-brand" href="/"><i class="fa fa-diamond" aria-hidden="true"></i> BEATCOIN</a></h1>
+
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<nav class="link-effect-2" id="link-effect-2">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/" class="effect-3">Home</a></li>
+							<% if(isLoged){ %>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Features <b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/history">History Price</a></li>
+									<li><a href="/currency">Currency</a></li>
+									<li><a href="/prediction">Prediction</a></li>
+								</ul>
+							</li>
+								<li class="dropdown">
+								<a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">Admin<b class="caret"></b></a>
+								<ul class="dropdown-menu agile_short_dropdown">
+									<li><a href="/profile">My Information</a></li>
+										<% try{if(isLoged){ %>
+										<li><a href="/logout">Log Out</a></li>
+										<% } }catch(err){alert(err);}%> 
+								</ul>
+							<% } %> 
+						</ul>
+					</nav>
+
+				</div>
+			</nav>	
+			<div class="clearfix"> </div> 
+		</div>
+</div>
+<!--/ banner -->
+<div class="banner1">
+			
+		<div class="w3_agileits_service_banner_info">
+			<h2>User information </h2>
+		</div>
+	</div>
+
+<!--/ banner -->
+	
+<div class="inner_main_agile_section" margin align="center">	
+		<h1 class="w3l_header w3_agileits_header"> About <span> You</span></h1>
+
+	
+<div class="clearfix" > </div>
+	<div class="container">
+		
+	  <table class="table" >
+					<thead>
+						<tr>
+							<th><h2>Account Name</h2></th>
+							<th><h2><%= user.accountname %><br></h2></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Real Name</td>
+							<td><%= user.realname %><br></td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td><%= user.email %><br></td>
+						
+						</tr>
+						<tr>
+							<td>Telephone</td>
+							<td><%= user.telephone %></td>
+						</tr>
+					</tbody>
+  </table>
+  </div>
+</div>
+<div class="inner_main_agile_section">
+	<div class="container">
+	   
+			<p class="sub_para_agile two"></p>
+	<h3 class="w3l_header w3_agileits_header"><a class="active" href="#" data-toggle="modal" data-target="#myModal2">  Edit your <span>inforamtion</span></a> </h3>
+		<p class="sub_para_agile two"></p>
+						<!-- Modal1 -->
+													<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+														<div class="modal-dialog">
+														<!-- Modal content-->
+															<div class="modal-content">
+																<div class="modal-header">
+																	<button type="button" class="close" data-dismiss="modal">&times;</button>
+																	
+																	<div class="signin-form profile">
+																	<h3 class="agileinfo_sign">Edit information</h3>	
+																			<div class="login-form">
+																				<form action="/edit" method="post">
+																					  <input type="text" name="realname" placeholder="Real Name" required="">
+																				   <input type="text" name="accountname" placeholder="Account Name" required="">
+																					<input type="email" name="email" placeholder="Email" required="">
+																					<input type="text" name="telephone" placeholder="Telephone" required="">
+																					<input type="password" name="passw" placeholder="Password" required="">																					<p class="sub_para_agile two"></p>
+																					<div class="tp">
+																						<input type="submit" value="edit">
+																					</div>
+																				</form>
+																			</div>
+																		
+																</div>
+															</div>
+														</div>
+													</div>
+	
+			</div>
+    </div>
+</div>
+	<div class="clearfix" ></div>
+
+<!-- //contact -->	
+<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="w3_agile_footer_grids">
+				<div class="w3_agile_footer_grid col-md-12">
+					<h3>BeatCoin</h3>
+					<p style="color: white">
+						<strong>Intorducing our website<br/></strong>
+						This website is designed for people who want to know cryptocurrency better. Its purpose is to display the cryptocurrency market by getting, retrieving, computing data from other web API.
+						<br/>
+					</p>
+				</div>
+              <div class="clearfix"> </div>
+			</div>
+
+			<div class="agileinfo_copyright">
+				<p>Developed by : Comp5703cp228</p>
+			</div>
+		</div>
+	</div>
+<!-- //footer -->
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

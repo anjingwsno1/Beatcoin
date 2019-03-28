@@ -1,0 +1,34 @@
+
+.filtr-item {
+    padding: 0em;
+   width: 33.3335%; 
+    float: left;
+}
+#demo {
+ 	background: #FFF;
+ 	overflow:hidden;
+ 	border: 1px dashed #CCC;
+ 	width: 2500px;
+ 	height:80px;
+}
+
+#demo img {
+
+     border: 3px solid #F2F2F2;
+ }
+
+#indemo {
+
+	float: left;
+	width: 800%;
+}
+
+#demo1 {
+
+float: left;
+
+}
+
+#demo2 {
+float: left;
+}
